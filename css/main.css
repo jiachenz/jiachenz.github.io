@@ -1,0 +1,360 @@
+:root {
+  color-scheme: dark;
+  --bg: #07080f;
+  --surface: rgba(18, 22, 34, 0.4);
+  --surface-border: rgba(255, 255, 255, 0.12);
+  --text: #e8eaf2;
+  --muted: #9aa3b5;
+  --accent: #7cb7ff;
+  --accent-hover: #a8d0ff;
+  --focus: #ffd27a;
+  --radius: 14px;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 0.5rem 0.75rem;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 50;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.page {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 2.5rem) clamp(1rem, 4vw, 1.75rem) 3rem;
+  pointer-events: auto;
+}
+
+.site-header {
+  margin-bottom: 1.75rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.site-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  line-height: 1.15;
+}
+
+.lede {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.site-nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-nav a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.site-nav a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius);
+  padding: 1.15rem 1.25rem 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+}
+
+/* 关于 / 项目 / 联系 / 投喂 / 公开留言：高透光；blur 不过度，便于看到背后虚空文字 */
+.panel--glass {
+  background: rgba(10, 14, 26, 0.24);
+  border-color: rgba(255, 255, 255, 0.11);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px) saturate(1.12);
+  -webkit-backdrop-filter: blur(14px) saturate(1.12);
+}
+
+.panel h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.05rem;
+}
+
+.panel p {
+  margin: 0.5rem 0 0;
+}
+
+.panel p:first-of-type {
+  margin-top: 0;
+}
+
+.panel .motto {
+  margin: 0.85rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 3px solid rgba(124, 183, 255, 0.35);
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.panel .motto em {
+  font-style: italic;
+}
+
+code {
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.giscus-panel .hint {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 0.85rem;
+}
+
+.giscus-root {
+  min-height: 120px;
+}
+
+.giscus-fallback {
+  margin: 0;
+}
+
+.project-list {
+  margin: 0.35rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.project-list li {
+  margin: 0.35rem 0;
+}
+
+.project-list a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-list a:hover {
+  text-decoration: underline;
+  color: var(--accent-hover);
+}
+
+.project-list a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.feed-details {
+  border: 0;
+}
+
+.feed-summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.feed-summary::-webkit-details-marker {
+  display: none;
+}
+
+.feed-summary-heading {
+  margin: 0;
+  font-size: 1.05rem;
+  display: inline;
+}
+
+.feed-summary-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.feed-details[open] .feed-summary-meta {
+  visibility: hidden;
+  width: 0;
+  overflow: hidden;
+}
+
+.feed-panel .hint {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 0.85rem;
+}
+
+.feed-details .hint {
+  margin-top: 0.65rem;
+}
+
+.feed-form textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 3.25rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--surface-border);
+  background: rgba(8, 9, 14, 0.65);
+  color: var(--text);
+  font: inherit;
+}
+
+.feed-form textarea:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-color: rgba(255, 210, 122, 0.35);
+}
+
+.feed-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.65rem;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.checkbox input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--accent);
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid rgba(124, 183, 255, 0.45);
+  background: linear-gradient(180deg, #2a3448, #1b2230);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: var(--accent-hover);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.field-hint {
+  margin: 0.45rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.giscus-panel .giscus-fallback a {
+  color: var(--accent);
+}
+
+#giscus-root.giscus {
+  min-height: 120px;
+  margin-top: 0.5rem;
+}
+
+.site-footer {
+  margin-top: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
