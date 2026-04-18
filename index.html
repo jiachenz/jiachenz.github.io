@@ -1,6 +1,182 @@
 <!doctype html>
-<html>
-  <header>
-    <h1>Hello World</h1>
-  </header>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jiachen Z — 数理道生 | 云原生 · Agent · RAG</title>
+    <meta
+      name="description"
+      content="Jiachen Z：云原生架构与 AI Agent 编排，执拗于 RAG 与闭环；另一头在读《易》《老》，给 Token 找东方譬喻。"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/void.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <div class="void-scene" aria-hidden="true">
+      <div class="void-bg"></div>
+      <svg
+        class="void-streams"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <!-- 径向动线用实色描边：过细的 stroke + 横向 linearGradient 在竖线上的 bbox 易导致整条看不见 -->
+        <g
+          class="void-streams-lines"
+          fill="none"
+          stroke="rgba(210, 228, 255, 0.32)"
+          stroke-width="0.17"
+          stroke-linecap="round"
+        >
+          <!-- 18 条（20° 均分圆周），自外缘指向中心 -->
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(0 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(20 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(40 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(60 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(80 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(100 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(120 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(140 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(160 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(180 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(200 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(220 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(240 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(260 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(280 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(300 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(320 50 50)" />
+          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(340 50 50)" />
+        </g>
+      </svg>
+      <div class="void-hole"></div>
+      <div class="void-particles" id="void-particles"></div>
+    </div>
+
+    <div class="page">
+      <header class="site-header">
+        <p class="eyebrow">数理道生 · The Cyber-Taoist</p>
+        <h1>Jiachen Z</h1>
+        <p class="lede">
+          云原生与
+          Agent
+          编排里，我追的是<strong>可验证的闭环</strong>：ReAct 是否收束、RAG
+          里向量距离有没有说谎。比起膜拜大模型，我更信工程里的
+          Skill
+          与约束。另一面则在《易》《老》与古汉语里给「Token」和单位找譬喻——奥卡姆剃刀剖系统，阴阳剖心。背景里坠入虚空的短句来自本地静态清单；公开交流见下方
+          GitHub Discussions（Giscus）。
+        </p>
+        <nav class="site-nav" aria-label="主要外链">
+          <a href="https://github.com/jiachenz">GitHub</a>
+        </nav>
+      </header>
+
+      <main id="main">
+        <section class="panel panel--glass" aria-labelledby="about-heading">
+          <h2 id="about-heading">关于</h2>
+          <p>
+            做云原生落地、AI Agent 工具链与 RAG 调优；习惯从依赖与边界条件切入，而不是先谈「通用智能」。
+            代码与架构是我眼里的秩序；Skill 与文档则是想留给协作与「数字传承」的种子。
+          </p>
+          <p class="motto">
+            <em
+              >道生一，一生二，二生 Token，Token 生万物。架构是外表的骨骼，而
+              Skill 才是数字灵魂的意志。</em
+            >
+          </p>
+        </section>
+
+        <section class="panel panel--glass" aria-labelledby="projects-heading">
+          <h2 id="projects-heading">项目</h2>
+          <ul class="project-list">
+            <li>
+              <a href="https://github.com/jiachenz/jiachenz.github.io"
+                >本站点（GitHub Pages）</a
+              >
+              <span class="muted">— 静态主页 + 虚空动效实验场</span>
+            </li>
+            <li>
+              <a href="https://github.com/jiachenz/fortune-telling">fortune-telling</a>
+              <span class="muted"
+                >— 前端占卜小实验：传统卦象与 Web 交互（JavaScript / CSS / HTML）</span
+              >
+            </li>
+          </ul>
+        </section>
+
+        <section class="panel panel--glass" aria-labelledby="contact-heading">
+          <h2 id="contact-heading">联系</h2>
+          <p>
+            邮箱：
+            <a href="mailto:zhoujiache2@hotmail.com">zhoujiache2@hotmail.com</a>
+            （合作、技术交流或引经据典的抬杠均可）。本站无自建后端；下滑先「投喂」本机动效，再往下为
+            GitHub Discussions 公开留言。
+          </p>
+        </section>
+
+        <section class="panel panel--glass feed-panel" aria-labelledby="feed-heading">
+          <details class="feed-details">
+            <summary class="feed-summary">
+              <h2 id="feed-heading" class="feed-summary-heading">
+                投喂一句（仅本页动效）
+              </h2>
+              <span class="feed-summary-meta">展开</span>
+            </summary>
+            <p class="hint">
+              一句碎碎念会化作粒子坠入中心；不上传服务器。勾选「本机记住」则写入浏览器
+              localStorage，仅供本机回味，与「数理道生」的公开形象无关。
+            </p>
+            <form class="feed-form" id="feed-form" novalidate>
+              <label for="feed-text" class="sr-only">要投喂的文字</label>
+              <textarea
+                id="feed-text"
+                name="text"
+                rows="2"
+                maxlength="100"
+                placeholder="譬喻、冷笑话、未提交的灵感，最多 100 字…"
+              ></textarea>
+              <div class="feed-row">
+                <label class="checkbox">
+                  <input type="checkbox" id="feed-save-local" />
+                  本机记住（localStorage）
+                </label>
+                <button type="submit" class="btn" id="feed-submit" disabled>
+                  坠入虚空
+                </button>
+              </div>
+              <p class="field-hint" id="feed-counter" aria-live="polite">
+                还可输入 100 字
+              </p>
+            </form>
+          </details>
+        </section>
+
+        <section
+          class="panel panel--glass giscus-panel"
+          aria-labelledby="discussions-heading"
+        >
+          <h2 id="discussions-heading">公开留言</h2>
+          <p class="hint">
+            基于
+            <a href="https://github.com/giscus/giscus">Giscus</a>
+            与
+            <a href="https://github.com/jiachenz/jiachenz.github.io/discussions"
+              >GitHub Discussions</a
+            >：需要 GitHub 账号登录；站长可在 GitHub 上编辑、锁定或删除讨论。若希望某条句子进入上方「虚空」粒子背景，把文案自行加入仓库内
+            <code>data/fragments.json</code> 即可。
+          </p>
+          <div id="giscus-root"></div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p class="muted">无 JavaScript 时仍可阅读以上正文。</p>
+      </footer>
+    </div>
+
+    <script src="js/fragments.js" defer></script>
+    <script src="js/void.js" defer></script>
+    <script src="js/load-giscus.js" defer></script>
+  </body>
 </html>
