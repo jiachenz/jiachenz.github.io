@@ -39,6 +39,21 @@
     if (i !== -1) active.splice(i, 1);
   }
 
+  function triggerBurst(x, y, isUser) {
+    if (!particlesEl || reducedMotion) return;
+
+    var burst = document.createElement("span");
+    burst.className = "void-burst" + (isUser ? " void-burst--user" : "");
+    burst.setAttribute("aria-hidden", "true");
+    burst.style.left = x + "px";
+    burst.style.top = y + "px";
+    particlesEl.appendChild(burst);
+
+    burst.addEventListener("animationend", function () {
+      if (burst.parentNode) burst.parentNode.removeChild(burst);
+    });
+  }
+
   function tick(now) {
     if (reducedMotion) {
       rafId = 0;
@@ -52,6 +67,7 @@
       var p = active[i];
       var t = (now - p.start) / p.duration;
       if (t >= 1) {
+        triggerBurst(cx, cy, p.isUser);
         removeParticle(p);
         continue;
       }
