@@ -353,8 +353,78 @@ code {
   border: 0;
 }
 
+/* Zen mode toggle */
+.zen-toggle {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 20;
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(12, 15, 28, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--muted);
+  font-size: 1.35rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, border-color 0.3s, opacity 0.3s;
+  pointer-events: auto;
+}
+
+.zen-toggle:hover {
+  background: rgba(20, 25, 45, 0.72);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.zen-toggle:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.zen-toggle[aria-pressed="true"] {
+  background: rgba(124, 183, 255, 0.15);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.zen-toggle-icon {
+  line-height: 1;
+}
+
+/* Page hide/show transition */
+.page {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+body.zen .page {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0.5s;
+}
+
+body.zen .skip-link {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .page {
+    transition: none;
+  }
+
+  body.zen .page {
+    transition: none;
   }
 }

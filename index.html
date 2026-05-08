@@ -75,6 +75,17 @@
       <div class="void-particles" id="void-particles"></div>
     </div>
 
+    <button
+      class="zen-toggle"
+      id="zen-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="切换沉浸模式"
+      title="隐藏面板，沉浸观看动效"
+    >
+      <span class="zen-toggle-icon" aria-hidden="true">⛶</span>
+    </button>
+
     <div class="page">
       <header class="site-header">
         <p class="eyebrow">数理道生 · The Cyber-Taoist</p>
@@ -199,5 +210,17 @@
     <script src="js/fragments.js" defer></script>
     <script src="js/void.js" defer></script>
     <script src="js/load-giscus.js" defer></script>
+    <script>
+      (function () {
+        var btn = document.getElementById("zen-toggle");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var active = document.body.classList.toggle("zen");
+          btn.setAttribute("aria-pressed", String(active));
+          btn.title = active ? "展开面板" : "隐藏面板，沉浸观看动效";
+          if (!active) window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      })();
+    </script>
   </body>
 </html>
