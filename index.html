@@ -21,33 +21,54 @@
         viewBox="0 0 100 100"
         preserveAspectRatio="xMidYMid slice"
       >
-        <!-- 径向动线用实色描边：过细的 stroke + 横向 linearGradient 在竖线上的 bbox 易导致整条看不见 -->
+        <defs>
+          <linearGradient id="void-beam-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="rgba(180,210,255,0)" />
+            <stop offset="55%" stop-color="rgba(150,190,255,0.12)" />
+            <stop offset="100%" stop-color="rgba(230,240,255,0.42)" />
+          </linearGradient>
+          <filter id="void-beam-blur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="0.22" />
+          </filter>
+          <!-- 与 .void-hole 同心：挖掉圆内光束，避免画进黑洞（半径取 viewBox 单位，略大于 max(52vmin,420px)/2 的等效值以盖住模糊） -->
+          <mask
+            id="void-beam-hole-cut"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="100"
+            height="100"
+          >
+            <rect width="100" height="100" fill="white" />
+            <circle cx="50" cy="48" r="16" fill="black" />
+          </mask>
+        </defs>
         <g
           class="void-streams-lines"
-          fill="none"
-          stroke="rgba(210, 228, 255, 0.32)"
-          stroke-width="0.17"
-          stroke-linecap="round"
+          filter="url(#void-beam-blur)"
+          mask="url(#void-beam-hole-cut)"
         >
-          <!-- 18 条（20° 均分圆周），自外缘指向中心 -->
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(0 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(20 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(40 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(60 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(80 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(100 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(120 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(140 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(160 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(180 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(200 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(220 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(240 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(260 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(280 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(300 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(320 50 50)" />
-          <line class="void-stream-line" x1="50" y1="3" x2="50" y2="37" transform="rotate(340 50 50)" />
+          <!-- 汇聚于 (50,48)，与 .void-hole 的 top:48% 一致；每组绕局部原点旋转，锥尖共心 -->
+          <g transform="translate(50 48)">
+            <g transform="rotate(0)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(20)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(40)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(60)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(80)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(100)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(120)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(140)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(160)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(180)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(200)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(220)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(240)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(260)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(280)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(300)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(320)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+            <g transform="rotate(340)"><polygon class="void-beam" points="-0.75,-47.5 0.75,-47.5 0.11,-12 -0.11,-12" /></g>
+          </g>
         </g>
       </svg>
       <div class="void-hole"></div>
